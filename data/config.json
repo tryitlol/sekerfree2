@@ -2,6 +2,7 @@
   "bot_token": "8972422329:AAGzsq1-PI9Wp1ZMhDaJwu43bSLPleE5Zhw",
   "admin_ids": [7675369659],
   "channel_username": "yatofeedbacks",
+  "force_channel": "yatofeedbacks",
   "locked": false,
   "global_limit": 10000,
   "vip_limit": null,
