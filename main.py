@@ -810,18 +810,12 @@ async def gate(update, context):
         tg.first_name or ""
     )
 
-    # ONLY admin bypass
-    if is_admin(tg.id, cfg):
-        return True, cfg, u
-
-    force_channel = (
-        cfg.get("channel_username", "")
-        .replace("@", "")
-        .strip()
-    )
+    force_channel = cfg.get(
+        "force_channel",
+        ""
+    ).replace("@", "").strip()
 
     if force_channel:
-
         joined = await in_channel(
             context.bot,
             uid,
@@ -829,12 +823,10 @@ async def gate(update, context):
         )
 
         if not joined:
-
             await join_prompt(
                 update.effective_message,
                 force_channel
             )
-
             return False, None, u
 
     return True, cfg, u
@@ -852,18 +844,12 @@ async def gate_cb(update, context):
         q.from_user.first_name or ""
     )
 
-    # ONLY admin bypass
-    if is_admin(q.from_user.id, cfg):
-        return True, cfg, u
-
-    force_channel = (
-        cfg.get("channel_username", "")
-        .replace("@", "")
-        .strip()
-    )
+    force_channel = cfg.get(
+        "force_channel",
+        ""
+    ).replace("@", "").strip()
 
     if force_channel:
-
         joined = await in_channel(
             context.bot,
             uid,
@@ -871,14 +857,10 @@ async def gate_cb(update, context):
         )
 
         if not joined:
-
-            try:
-                await q.answer(
-                    "❌ Join the channel first.",
-                    show_alert=True
-                )
-            except:
-                pass
+            await q.answer(
+                "❌ Join channel first.",
+                show_alert=True
+            )
 
             await join_prompt(
                 q.message,
