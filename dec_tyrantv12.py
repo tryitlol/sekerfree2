@@ -1,4 +1,4 @@
-#Decode By Crazy | @PokiePy
+#Decode By Crazy | @
 import os
 import sys
 import time
