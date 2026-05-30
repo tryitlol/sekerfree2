@@ -1,4 +1,4 @@
-#Decode By Crazy | @
+#Decode By Crazy | @y
 import os
 import sys
 import time
